@@ -1,5 +1,15 @@
 # timef
 
+[![codebeat][1]][2] [![Downloads][3]][4]
+
+[1]: https://codebeat.co/badges/a08a9126-60d7-4cee-b266-8277a7885467 "Codebeat badge"
+[2]: https://codebeat.co/projects/github-com-karpovdl-timef-master "Codebeat"
+
+[3]: https://img.shields.io/github/downloads/karpovdl/timef/total.svg "All releases badge"
+[4]: https://github.com/karpovdl/timef/releases "All releases number"
+
+[![](resource/timef.png)](https://github.com/karpovdl/timef)
+
 The package contains a set of methods for casting dates from one view to another.
 
 ## Sample
@@ -12,7 +22,7 @@ An example of working with the method **ToFormat**.
 // > value: 2020-05-20 00:00:00
 // > layout: 2006-01-02 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("2020-05-20 00:00:00", timef.StampDashDateLongYearAtBegin, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("2020-05-20 00:00:00", timef.StampDashDateLongYearAtBegin, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -23,7 +33,7 @@ outputDate, _ := timef.ToFormat("2020-05-20 00:00:00", timef.StampDashDateLongYe
 // > value: 2020/05/20 00:00:00
 // > layout: 2006/01/02 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("2020/05/20 00:00:00", timef.StampSlashDateLongYearAtBegin, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("2020/05/20 00:00:00", timef.StampSlashDateLongYearAtBegin, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -34,7 +44,7 @@ outputDate, _ := timef.ToFormat("2020/05/20 00:00:00", timef.StampSlashDateLongY
 // > value: 2020.05.20 00:00:00
 // > layout: 2006.01.02 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("2020.05.20 00:00:00", timef.StampDotDateLongYearAtBegin, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("2020.05.20 00:00:00", timef.StampDotDateLongYearAtBegin, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -45,7 +55,7 @@ outputDate, _ := timef.ToFormat("2020.05.20 00:00:00", timef.StampDotDateLongYea
 // > value: 20200520 00:00:00
 // > layout: 20060102 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("20200520 00:00:00", timef.StampDateLongYearAtBegin, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("20200520 00:00:00", timef.StampDateLongYearAtBegin, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -56,7 +66,7 @@ outputDate, _ := timef.ToFormat("20200520 00:00:00", timef.StampDateLongYearAtBe
 // > value: 20.05.2020 00:00:00
 // > layout: 02.01.2006 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("20.05.2020 00:00:00", timef.StampDotDateLongYearAtEnd, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("20.05.2020 00:00:00", timef.StampDotDateLongYearAtEnd, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -67,7 +77,7 @@ outputDate, _ := timef.ToFormat("20.05.2020 00:00:00", timef.StampDotDateLongYea
 // > value: 20.05.20 00:00:00
 // > layout: 02.01.06 15:04:05
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("20.05.20 00:00:00", timef.StampDotDateYearAtEnd, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("20.05.20 00:00:00", timef.StampDotDateYearAtEnd, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -78,7 +88,7 @@ outputDate, _ := timef.ToFormat("20.05.20 00:00:00", timef.StampDotDateYearAtEnd
 // > value: 2020-05-20
 // > layout: 2006-01-02
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("2020-05-20", timef.StampDashDayLongYearAtBegin, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("2020-05-20", timef.StampDashDayLongYearAtBegin, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -89,7 +99,7 @@ outputDate, _ := timef.ToFormat("2020-05-20", timef.StampDashDayLongYearAtBegin,
 // > value: 20.05.2020
 // > layout: 02.01.2006
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("20.05.2020", timef.StampDotDayLongYearAtEnd, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("20.05.2020", timef.StampDotDayLongYearAtEnd, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
@@ -100,7 +110,7 @@ outputDate, _ := timef.ToFormat("20.05.2020", timef.StampDotDayLongYearAtEnd, ti
 // > value: 20.05.20
 // > layout: 02.01.06
 // > format: YYYY-MM-DD HH24:MI:SS
-outputDate, _ := timef.ToFormat("20.05.20", timef.StampDotDayYearAtEnd, timef.GetFormat(FormatDateLongYearAtBegin21))
+outputDate, _ := timef.ToFormat("20.05.20", timef.StampDotDayYearAtEnd, timef.Format[FormatDateLongYearAtBegin21])
 // Output date string
 // > value: 2020-05-20 00:00:00
 ```
